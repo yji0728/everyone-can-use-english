@@ -27,13 +27,13 @@ export const LanguageSettings = () => {
         <div className="flex items-center justify-end space-x-2 mb-2">
           <Select
             value={language}
-            onValueChange={(value: "en" | "zh-CN") => {
+            onValueChange={(value: "en" | "zh-CN" | "ko-KR") => {
               switchLanguage(value);
             }}
           >
             <SelectTrigger className="text-xs">
               <SelectValue>
-                {language === "en" ? "English" : "简体中文"}
+                {language === "en" ? "English" : language === "zh-CN" ? "简体中文" : "한국어"}
               </SelectValue>
             </SelectTrigger>
             <SelectContent>
@@ -42,6 +42,9 @@ export const LanguageSettings = () => {
               </SelectItem>
               <SelectItem className="text-xs" value="zh-CN">
                 简体中文
+              </SelectItem>
+              <SelectItem className="text-xs" value="ko-KR">
+                한국어
               </SelectItem>
             </SelectContent>
           </Select>

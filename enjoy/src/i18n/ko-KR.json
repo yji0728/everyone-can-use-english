@@ -150,5 +150,20 @@
   "spanish": "스페인어",
   "french": "프랑스어",
   "german": "독일어",
-  "italian": "이탈리아어"
+  "italian": "이탈리아어",
+  "appearance": "외관",
+  "about": "정보",
+  "currentVersion": "현재 버전",
+  "checkUpdate": "업데이트 확인",
+  "userGuide": "사용 설명서",
+  "open": "열기",
+  "lookupOnMouseOver": "마우스 오버시 검색",
+  "checkingForUpdate": "업데이트 확인 중",
+  "updateAvailable": "새 버전 사용 가능",
+  "quitAndInstall": "종료 후 새 버전 설치",
+  "pleaseSelect": "선택해주세요",
+  "notFound": "찾을 수 없음",
+  "saved": "저장됨",
+  "copied": "복사됨",
+  "copyFullText": "전체 텍스트 복사"
 }
