@@ -44,8 +44,8 @@ type AppSettingsProviderState = {
   refreshAccount?: () => Promise<void>;
   setLibraryPath?: (path: string) => Promise<void>;
   EnjoyApp: EnjoyAppType;
-  language?: "en" | "zh-CN";
-  switchLanguage?: (language: "en" | "zh-CN") => void;
+  language?: "en" | "zh-CN" | "ko-KR";
+  switchLanguage?: (language: "en" | "zh-CN" | "ko-KR") => void;
   nativeLanguage?: string;
   switchNativeLanguage?: (lang: string) => void;
   learningLanguage?: string;
@@ -90,8 +90,8 @@ export const AppSettingsProvider = ({
   const [cable, setCable] = useState<Consumer>();
   const [user, setUser] = useState<UserType | null>(null);
   const [libraryPath, setLibraryPath] = useState("");
-  const [language, setLanguage] = useState<"en" | "zh-CN">();
-  const [nativeLanguage, setNativeLanguage] = useState<string>("zh-CN");
+  const [language, setLanguage] = useState<"en" | "zh-CN" | "ko-KR">();
+  const [nativeLanguage, setNativeLanguage] = useState<string>("ko-KR");
   const [learningLanguage, setLearningLanguage] = useState<string>("en-US");
   const [vocabularyConfig, setVocabularyConfig] =
     useState<VocabularyConfigType>(null);
@@ -111,12 +111,12 @@ export const AppSettingsProvider = ({
     const language = await EnjoyApp.userSettings.get(
       UserSettingKeyEnum.LANGUAGE
     );
-    setLanguage((language as "en" | "zh-CN") || "en");
+    setLanguage((language as "en" | "zh-CN" | "ko-KR") || "en");
     i18n.changeLanguage(language);
 
     const _nativeLanguage =
       (await EnjoyApp.userSettings.get(UserSettingKeyEnum.NATIVE_LANGUAGE)) ||
-      "zh-CN";
+      "ko-KR";
     setNativeLanguage(_nativeLanguage);
 
     const _learningLanguage =
@@ -125,7 +125,7 @@ export const AppSettingsProvider = ({
     setLearningLanguage(_learningLanguage);
   };
 
-  const switchLanguage = (language: "en" | "zh-CN") => {
+  const switchLanguage = (language: "en" | "zh-CN" | "ko-KR") => {
     EnjoyApp.userSettings
       .set(UserSettingKeyEnum.LANGUAGE, language)
       .then(() => {
